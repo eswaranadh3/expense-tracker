@@ -54,7 +54,7 @@ export default function ExpenseList() {
       id,
       descp,
       name,
-      price,
+      price: price + "$",
     }
   })
 
