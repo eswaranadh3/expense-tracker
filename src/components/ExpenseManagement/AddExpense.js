@@ -44,7 +44,11 @@ function AddExpense() {
                 size={"small"}
                 fullWidth
                 required
-                onChange={(e) => stateSetters.setPrice(e.target.value)}
+                onChange={(e) =>
+                  Number(e.target.value) >= 0
+                    ? stateSetters.setPrice(e.target.value)
+                    : ""
+                }
                 value={price}
               />
             </Grid>
