@@ -1,6 +1,6 @@
 Below image depicts the overall functionality of the application:
 
-![image](https://user-images.githubusercontent.com/106499848/170904300-f3e87445-5ed9-4063-ad53-9b2c4408df8b.png)
+![image](https://user-images.githubusercontent.com/106499848/171282967-a9c998a5-fc64-413a-925c-39dfc8c3de80.png)
 
 
 Below image shows how to add a new expense:
@@ -10,7 +10,7 @@ Below image shows how to add a new expense:
 
 Below image shows the list of expenses added:
 
-![image](https://user-images.githubusercontent.com/106499848/170904432-f153706d-9805-4c5a-8759-b79d0f73fb00.png)
+![image](https://user-images.githubusercontent.com/106499848/171283005-025cb78b-f9e1-4740-a436-fce229bb9cf2.png)
 
 
 Dashboard:
