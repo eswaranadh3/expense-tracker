@@ -29,6 +29,7 @@ export default function ExpenseList() {
       resizable: true,
       flex: 1,
     },
+    { field: "createdAt", headerName: "Date/Time", resizable: true, flex: 1 },
     {
       field: "",
       headerName: "Actions",
@@ -49,12 +50,16 @@ export default function ExpenseList() {
   ]
 
   const rows = state.expenseList.map((expense) => {
-    const { id, descp, name, price } = expense
+    const { id, descp, name, price, created_at } = expense
     return {
       id,
       descp,
       name,
       price: price + "$",
+      createdAt:
+        new Date(created_at).toLocaleDateString() +
+        "  " +
+        new Date(created_at).toLocaleTimeString(),
     }
   })
 

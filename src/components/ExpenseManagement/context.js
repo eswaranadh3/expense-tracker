@@ -33,7 +33,11 @@ function ExpenseManagementContextProvider(props) {
   const getExpenseList = async () => {
     try {
       setLoading(true)
-      const data = await MakeRequest("get", "/expenses")
+      let data = await MakeRequest("get", "/expenses")
+      data = data.sort(
+        (a, b) =>
+          new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      )
       setExpenseList(data)
       setLoading(false)
       setExpensesDataModifiedAt(Date.now())
