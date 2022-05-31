@@ -13,6 +13,7 @@ export default function ExpenseList() {
   }, [])
 
   const editExpense = (row) => {
+    stateSetters.setExpenseId(row.id)
     stateSetters.setName(row.name)
     stateSetters.setPrice(row.price)
     stateSetters.setDescp(row.descp)
@@ -28,6 +29,9 @@ export default function ExpenseList() {
       type: "number",
       resizable: true,
       flex: 1,
+      renderCell: (params) => {
+        return <span>{params.row.price + "$"}</span>
+      },
     },
     { field: "createdAt", headerName: "Date/Time", resizable: true, flex: 1 },
     {
@@ -55,7 +59,7 @@ export default function ExpenseList() {
       id,
       descp,
       name,
-      price: price + "$",
+      price: price,
       createdAt:
         new Date(created_at).toLocaleDateString() +
         "  " +

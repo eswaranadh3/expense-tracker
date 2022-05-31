@@ -8,6 +8,7 @@ const useExpenseManagementContext = () => useContext(ExpenseManagementContext)
 const expenseManagementInitialState = {
   expenseList: [],
   loading: true,
+  expenseId: "",
   name: "",
   price: "",
   descp: "",
@@ -23,6 +24,9 @@ function ExpenseManagementContextProvider(props) {
   const [name, setName] = useState(expenseManagementInitialState.name)
   const [price, setPrice] = useState(expenseManagementInitialState.price)
   const [descp, setDescp] = useState(expenseManagementInitialState.descp)
+  const [expenseId, setExpenseId] = useState(
+    expenseManagementInitialState.expenseId
+  )
   const [editMode, setEditMode] = useState(
     expenseManagementInitialState.editMode
   )
@@ -59,11 +63,13 @@ function ExpenseManagementContextProvider(props) {
       setName("")
       setPrice("")
       setDescp("")
+      setExpenseId("")
       cogoToast.success("Expense added successfully")
       getExpenseList()
       setLoading(false)
     } catch (error) {
       setLoading(false)
+      cogoToast.error("Failed to add expense")
       console.error(error)
     }
   }
@@ -76,15 +82,17 @@ function ExpenseManagementContextProvider(props) {
         price,
         descp,
       }
-      await MakeRequest("put", "/expenses", payload)
+      await MakeRequest("put", "/expenses/" + expenseId, payload)
       setName("")
       setPrice("")
       setDescp("")
+      setExpenseId("")
       cogoToast.success("Expense updated successfully")
       getExpenseList()
       setLoading(false)
     } catch (error) {
       setLoading(false)
+      cogoToast.error("Failed to update expense")
       console.error(error)
     }
   }
@@ -98,6 +106,7 @@ function ExpenseManagementContextProvider(props) {
       setLoading(false)
     } catch (error) {
       setLoading(false)
+      cogoToast.error("Failed to delete expense")
       console.error(error)
     }
   }
@@ -117,6 +126,7 @@ function ExpenseManagementContextProvider(props) {
     descp,
     editMode,
     expensesDataModifiedAt,
+    expenseId,
   }
 
   const stateSetters = {
@@ -127,6 +137,7 @@ function ExpenseManagementContextProvider(props) {
     setDescp,
     setEditMode,
     setExpensesDataModifiedAt,
+    setExpenseId,
   }
 
   const services = {

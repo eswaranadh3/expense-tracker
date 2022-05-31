@@ -15,6 +15,7 @@ function AddExpense() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (editMode) return services.updateExpense()
     services.addExpense()
   }
 
