@@ -16,3 +16,4 @@ Below image shows the list of expenses added:
 Dashboard:
 
 ![image](https://user-images.githubusercontent.com/106499848/170904461-cf265bc8-b861-495e-bbba-70b2f79f2040.png)
+
